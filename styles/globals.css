@@ -6,4 +6,8 @@
   html {
     font-family: "Inter", sans-serif;
   }
+
+  body {
+    @apply bg-zinc-900 text-zinc-200;
+  }
 }
