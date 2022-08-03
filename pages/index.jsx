@@ -46,7 +46,9 @@ export default function Home() {
             {user.data ? (
               user.data.map((value) => (
                 <div key={value.id}>
-                  <img src={value.media_url} alt="ig_image" width={300} />
+                  <a href={value.permalink}>
+                    <img src={value.media_url} alt="ig_image" width={300} />
+                  </a>
                 </div>
               ))
             ) : (
