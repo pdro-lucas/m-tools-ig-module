@@ -2,7 +2,7 @@ import axios from "../../src/services/axios";
 
 export default async function handler(req, res) {
   switch (req.method) {
-    case "POST":
+    case "post":
       const { username } = req.body;
       try {
         const { data } = await axios.get(
