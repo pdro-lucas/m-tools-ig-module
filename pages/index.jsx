@@ -23,9 +23,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <section className="lg:container flex flex-col items-center justify-center h-screen">
-          <div className="text-center mb-12">
+      <main className="h-full">
+        <section className="lg:container flex flex-col items-center justify-center mb-12 h-[600px]">
+          <div className="text-center">
             <h1 className="font-extrabold text-2xl mb-12">Search User</h1>
             <input
               className="bg-zinc-800 rounded-l-full py-2 px-4 border-none"
@@ -42,12 +42,18 @@ export default function Home() {
               Search
             </button>
           </div>
-          <div className="flex gap-4">
+        </section>
+        <section className="lg:container">
+          <div className="flex gap-4 flex-wrap">
             {user.data ? (
               user.data.map((value) => (
-                <div key={value.id}>
+                <div key={value.id} className="md:w-[372px] w-full">
                   <a href={value.permalink}>
-                    <img src={value.media_url} alt="ig_image" width={300} />
+                    <img
+                      src={value.media_url}
+                      alt="ig_image"
+                      className="w-full"
+                    />
                   </a>
                 </div>
               ))
