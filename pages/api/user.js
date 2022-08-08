@@ -6,7 +6,7 @@ export default async function handler(req, res) {
       const { username } = req.body;
       try {
         const { data } = await axios.get(
-          `${process.env.IG_USER_ID}?fields=business_discovery.username(${username}){id,username,followers_count,media{comments_count,like_count,media_product_type,media_type,media_url,timestamp,username,caption}}`,
+          `${process.env.IG_USER_ID}?fields=business_discovery.username(${username}){id,username,followers_count,media{comments_count,like_count,media_product_type,media_type,permalink,media_url,timestamp,username,caption}}`,
           {
             params: {
               access_token: process.env.IG_ACCESS_TOKEN,
