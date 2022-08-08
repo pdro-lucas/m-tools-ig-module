@@ -11,8 +11,8 @@ export default function Home() {
     const { data } = await axios.post("/api/user", {
       username,
     });
-    setUser(() => data.data.business_discovery.media);
-    console.log(user);
+    setUser(data.data.business_discovery.media);
+    console.log(user.data);
   };
 
   return (
@@ -23,8 +23,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <section className="lg:container flex items-center justify-center h-screen">
+      <main className="h-full">
+        <section className="lg:container flex flex-col items-center justify-center mb-12 h-[600px]">
           <div className="text-center">
             <h1 className="font-extrabold text-2xl mb-12">Search User</h1>
             <input
@@ -43,14 +43,18 @@ export default function Home() {
             </button>
           </div>
         </section>
-
-        {/* <section>{user ? <p>{user.data[0].id}</p> : <h1>N</h1>}</section> */}
-        <section className="container">
-          <div className="flex">
-            {user.length > 0 ? (
+        <section className="lg:container">
+          <div className="flex gap-4 flex-wrap">
+            {user.data ? (
               user.data.map((value) => (
-                <div key={value.id}>
-                  <img src={value.media_url} alt="ig_image" width={300} />
+                <div key={value.id} className="md:w-[372px] w-full">
+                  <a href={value.permalink}>
+                    <img
+                      src={value.media_url}
+                      alt="ig_image"
+                      className="w-full"
+                    />
+                  </a>
                 </div>
               ))
             ) : (
